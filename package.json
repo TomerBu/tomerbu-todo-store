@@ -1,0 +1,18 @@
+{
+  "name": "tomerbu-todo-store",
+  "version": "1.0.1",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["todo", "store", "wordpress", "data"],
+  "author": "tomerbu",
+  "license": "ISC",
+  "description": "todo list store",
+  "devDependencies": {
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@wordpress/data": "^10.2.0"
+  }
+}

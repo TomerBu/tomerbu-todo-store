@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["dom", "es2017"],
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "outDir": "./build",
+    "declarationDir": "./build", // Output directory for .d.ts files
+    "declaration": true // Generate .d.ts files
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
