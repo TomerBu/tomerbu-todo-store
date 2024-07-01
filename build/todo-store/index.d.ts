@@ -3,10 +3,10 @@ export declare const store: import("@wordpress/data/build-types/types").StoreDes
         readonly type: import("./actions").ActionTypes.UPDATE_TODO;
         readonly payload: import("../types").TodoUpdate;
     };
-    addTodo: (payload: import("../types").TodoAdd) => {
-        readonly type: import("./actions").ActionTypes.ADD_TODO;
-        readonly payload: import("../types").TodoAdd;
-    };
+    addTodo: (payload: import("../types").TodoAdd) => Generator<ReturnType<typeof import("./actions").createTodo>, {
+        type: import("./actions").ActionTypes.ADD_TODO;
+        payload: import("..").Todo;
+    }, import("..").Todo>;
     clearAllTodos: () => {
         readonly type: import("./actions").ActionTypes.CLEAR_ALL_TODOS;
     };

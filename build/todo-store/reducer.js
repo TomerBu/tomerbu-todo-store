@@ -1,20 +1,11 @@
 import { ActionTypes } from "./actions";
 const initialState = { todos: [] };
-const idGenerator = function* () {
-    let id = 500;
-    while (true) {
-        yield id++;
-    }
-};
-const idf = idGenerator();
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO /**/:
             return {
-                todos: [
-                    ...state.todos,
-                    { ...action.payload, id: idf.next().value, completed: false },
-                ],
+                ...state,
+                todos: [...state.todos, { ...action.payload }],
             };
         case ActionTypes.CLEAR_ALL_TODOS:
             return { todos: [] };
