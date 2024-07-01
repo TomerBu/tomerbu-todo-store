@@ -7,6 +7,7 @@ enum ActionTypes {
   POPULATE_TODOS = "POPULATE_TODOS",
   FETCH_TODOS = "FETCH_TODOS",
   UPDATE_TODO = "UPDATE_TODO",
+  PATCH_COMPLETED = "PATCH_COMPLETED",
 }
 
 const addTodo = function* (
@@ -28,8 +29,22 @@ export const createTodo = (todo: TodoAdd) =>
     payload: todo,
   } as const);
 
-const updateTodo = (payload: TodoUpdate) =>
-  ({ type: ActionTypes.UPDATE_TODO, payload } as const);
+export const patchCompleted = (updateTodo: Pick<Todo, "id" | "completed">) =>
+  ({ type: ActionTypes.PATCH_COMPLETED, payload: updateTodo } as const);
+
+const updateTodo = function* (
+  payload: Pick<Todo, "id" | "completed">
+): Generator<
+  ReturnType<typeof patchCompleted>,
+  { type: ActionTypes.UPDATE_TODO; payload: Todo },
+  Todo
+> {
+  const updatedTodo = yield patchCompleted({
+    id: payload.id,
+    completed: payload.completed,
+  });
+  return { type: ActionTypes.UPDATE_TODO, payload: updatedTodo } as const;
+};
 
 const populateTodos = (payload: Todo[]) =>
   ({ type: ActionTypes.POPULATE_TODOS, payload } as const);
@@ -54,7 +69,8 @@ export {
   fetchTodos,
 };
 
-type ActionsWithoutAdd = Omit<typeof actions, "addTodo">;
+type ActionsWithoutAdd = Omit<Omit<typeof actions, "addTodo">, "updateTodo">;
 export type Actions =
   | ReturnType<ActionsWithoutAdd[keyof ActionsWithoutAdd]>
-  | { type: ActionTypes.ADD_TODO; payload: TodoAdd };
+  | { type: ActionTypes.ADD_TODO; payload: TodoAdd }
+  | { type: ActionTypes.UPDATE_TODO; payload: Todo };
