@@ -33,3 +33,5 @@ node_modules/
 .vscode
 
 build/
+
+# delete the folder build/ and node_modules/ from the git repository:
