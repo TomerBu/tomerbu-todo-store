@@ -16,6 +16,6 @@
     "declarationDir": "./build", // Output directory for .d.ts files
     "declaration": true // Generate .d.ts files
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "demo.ts"],
   "exclude": ["node_modules"]
 }

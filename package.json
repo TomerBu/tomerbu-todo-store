@@ -1,11 +1,16 @@
 {
   "name": "tomerbu-todo-store",
-  "version": "1.0.1",
+  "version": "1.0.17",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": ["todo", "store", "wordpress", "data"],
+  "keywords": [
+    "todo",
+    "store",
+    "wordpress",
+    "data"
+  ],
   "author": "tomerbu",
   "license": "ISC",
   "description": "todo list store",
@@ -14,5 +19,13 @@
   },
   "dependencies": {
     "@wordpress/data": "^10.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomerbu/tomerbu-todo-store.git"
+  },
+  "homepage": "https://github.com/tomerbu/tomerbu-todo-store#readme",
+  "bugs": {
+    "url": "https://github.com/tomerbu/tomerbu-todo-store/issues"
   }
 }
